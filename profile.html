@@ -64,17 +64,17 @@
 
             <!-- Profile Navigation -->
             <nav class="profile-nav">
-                <button class="profile-nav-btn active" onclick="showSection('favorites')">Favorites</button>
-                <button class="profile-nav-btn" onclick="showSection('orders')">Order History</button>
-                <button class="profile-nav-btn" onclick="showSection('suggestions')">Smart Suggestions</button>
-                <button class="profile-nav-btn" onclick="showSection('settings')">Settings</button>
+                <button class="profile-nav-btn active">Favorites</button>
+                <button class="profile-nav-btn">Order History</button>
+                <button class="profile-nav-btn">Smart Suggestions</button>
+                <button class="profile-nav-btn">Settings</button>
             </nav>
 
             <!-- Favorites Section -->
             <section class="profile-section active" id="favorites">
                 <div class="section-header">
                     <h3 class="section-title">Saved Favorites</h3>
-                    <button class="btn-outline" onclick="clearFavorites()">Clear All</button>
+                    <button class="btn-outline">Clear All</button>
                 </div>
                 
                 <div class="favorites-grid">
@@ -88,7 +88,7 @@
                             <div class="favorite-price">$2,499</div>
                             <div class="favorite-actions">
                                 <button class="btn-primary">View Details</button>
-                                <button class="btn-outline" onclick="removeFavorite('macbook')">Remove</button>
+                                <button class="btn-outline">Remove</button>
                             </div>
                         </div>
                     </div>
@@ -103,7 +103,7 @@
                             <div class="favorite-price">$999</div>
                             <div class="favorite-actions">
                                 <button class="btn-primary">View Details</button>
-                                <button class="btn-outline" onclick="removeFavorite('iphone')">Remove</button>
+                                <button class="btn-outline">Remove</button>
                             </div>
                         </div>
                     </div>
@@ -118,7 +118,7 @@
                             <div class="favorite-price">$1,299</div>
                             <div class="favorite-actions">
                                 <button class="btn-primary">View Details</button>
-                                <button class="btn-outline" onclick="removeFavorite('samsung-tv')">Remove</button>
+                                <button class="btn-outline">Remove</button>
                             </div>
                         </div>
                     </div>
@@ -347,6 +347,5 @@ United States</textarea>
         </div>
     </footer>
 
-    <script src="script.js"></script>
 </body>
 </html>
