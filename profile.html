@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile & Orders - TechMarket</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <h1 class="logo">TechMarket</h1>
+                </div>
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="catalog.html" class="nav-link">Catalog</a>
+                    <a href="comparison.html" class="nav-link">Compare</a>
+                    <a href="cart.html" class="nav-link">Cart</a>
+                    <a href="profile.html" class="nav-link active">Profile</a>
+                </div>
+                <div class="nav-actions">
+                    <button class="search-btn">
+                        <div class="search-icon"></div>
+                    </button>
+                    <button class="menu-btn">
+                        <div class="menu-icon"></div>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="profile-container">
+            <!-- Profile Header -->
+            <section class="profile-header">
+                <div class="profile-avatar">
+                    <img src="https://via.placeholder.com/100x100/4F46E5/FFFFFF?text=JD" alt="Profile" class="avatar-image">
+                </div>
+                <div class="profile-info">
+                    <h2 class="profile-name">John Doe</h2>
+                    <p class="profile-email">john.doe@email.com</p>
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">12</span>
+                            <span class="stat-label">Orders</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">8</span>
+                            <span class="stat-label">Favorites</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">4.8</span>
+                            <span class="stat-label">Rating</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Profile Navigation -->
+            <nav class="profile-nav">
+                <button class="profile-nav-btn active" onclick="showSection('favorites')">Favorites</button>
+                <button class="profile-nav-btn" onclick="showSection('orders')">Order History</button>
+                <button class="profile-nav-btn" onclick="showSection('suggestions')">Smart Suggestions</button>
+                <button class="profile-nav-btn" onclick="showSection('settings')">Settings</button>
+            </nav>
+
+            <!-- Favorites Section -->
+            <section class="profile-section active" id="favorites">
+                <div class="section-header">
+                    <h3 class="section-title">Saved Favorites</h3>
+                    <button class="btn-outline" onclick="clearFavorites()">Clear All</button>
+                </div>
+                
+                <div class="favorites-grid">
+                    <div class="favorite-item" data-product="macbook">
+                        <div class="favorite-image">
+                            <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=200&h=150&fit=crop&crop=center" alt="MacBook Pro" onerror="this.src='https://via.placeholder.com/200x150/4F46E5/FFFFFF?text=MacBook+Pro'">
+                        </div>
+                        <div class="favorite-info">
+                            <h4 class="favorite-title">MacBook Pro 16"</h4>
+                            <p class="favorite-spec">M3 Pro • 16GB RAM • 512GB SSD</p>
+                            <div class="favorite-price">$2,499</div>
+                            <div class="favorite-actions">
+                                <button class="btn-primary">View Details</button>
+                                <button class="btn-outline" onclick="removeFavorite('macbook')">Remove</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="favorite-item" data-product="iphone">
+                        <div class="favorite-image">
+                            <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=200&h=150&fit=crop&crop=center" alt="iPhone 15" onerror="this.src='https://via.placeholder.com/200x150/059669/FFFFFF?text=iPhone+15'">
+                        </div>
+                        <div class="favorite-info">
+                            <h4 class="favorite-title">iPhone 15 Pro</h4>
+                            <p class="favorite-spec">A17 Pro • 128GB • Titanium</p>
+                            <div class="favorite-price">$999</div>
+                            <div class="favorite-actions">
+                                <button class="btn-primary">View Details</button>
+                                <button class="btn-outline" onclick="removeFavorite('iphone')">Remove</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="favorite-item" data-product="samsung-tv">
+                        <div class="favorite-image">
+                            <img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=200&h=150&fit=crop&crop=center" alt="Samsung TV" onerror="this.src='https://via.placeholder.com/200x150/DC2626/FFFFFF?text=Samsung+TV'">
+                        </div>
+                        <div class="favorite-info">
+                            <h4 class="favorite-title">Samsung QLED 65"</h4>
+                            <p class="favorite-spec">4K • HDR10+ • Smart TV</p>
+                            <div class="favorite-price">$1,299</div>
+                            <div class="favorite-actions">
+                                <button class="btn-primary">View Details</button>
+                                <button class="btn-outline" onclick="removeFavorite('samsung-tv')">Remove</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Order History Section -->
+            <section class="profile-section" id="orders">
+                <div class="section-header">
+                    <h3 class="section-title">Order History</h3>
+                    <select class="order-filter">
+                        <option value="all">All Orders</option>
+                        <option value="pending">Pending</option>
+                        <option value="shipped">Shipped</option>
+                        <option value="delivered">Delivered</option>
+                    </select>
+                </div>
+
+                <div class="orders-list">
+                    <div class="order-item">
+                        <div class="order-header">
+                            <div class="order-info">
+                                <h4 class="order-number">Order #12345</h4>
+                                <p class="order-date">Placed on Dec 15, 2024</p>
+                            </div>
+                            <div class="order-status delivered">Delivered</div>
+                        </div>
+                        <div class="order-items">
+                            <div class="order-item-product">
+                                <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=60&h=40&fit=crop&crop=center" alt="MacBook" onerror="this.src='https://via.placeholder.com/60x40/4F46E5/FFFFFF?text=MacBook'">
+                                <div class="order-item-info">
+                                    <h5 class="order-item-title">MacBook Pro 16"</h5>
+                                    <p class="order-item-spec">M3 Pro • 16GB RAM • 512GB SSD</p>
+                                </div>
+                                <div class="order-item-price">$2,499</div>
+                            </div>
+                        </div>
+                        <div class="order-actions">
+                            <button class="btn-outline">Track Package</button>
+                            <button class="btn-outline">Reorder</button>
+                            <button class="btn-outline">Return</button>
+                        </div>
+                    </div>
+
+                    <div class="order-item">
+                        <div class="order-header">
+                            <div class="order-info">
+                                <h4 class="order-number">Order #12344</h4>
+                                <p class="order-date">Placed on Dec 10, 2024</p>
+                            </div>
+                            <div class="order-status shipped">Shipped</div>
+                        </div>
+                        <div class="order-items">
+                            <div class="order-item-product">
+                                <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=60&h=40&fit=crop&crop=center" alt="iPhone" onerror="this.src='https://via.placeholder.com/60x40/059669/FFFFFF?text=iPhone'">
+                                <div class="order-item-info">
+                                    <h5 class="order-item-title">iPhone 15 Pro</h5>
+                                    <p class="order-item-spec">A17 Pro • 128GB • Titanium</p>
+                                </div>
+                                <div class="order-item-price">$999</div>
+                            </div>
+                        </div>
+                        <div class="order-actions">
+                            <button class="btn-outline">Track Package</button>
+                            <button class="btn-outline">Reorder</button>
+                        </div>
+                    </div>
+
+                    <div class="order-item">
+                        <div class="order-header">
+                            <div class="order-info">
+                                <h4 class="order-number">Order #12343</h4>
+                                <p class="order-date">Placed on Dec 5, 2024</p>
+                            </div>
+                            <div class="order-status pending">Processing</div>
+                        </div>
+                        <div class="order-items">
+                            <div class="order-item-product">
+                                <img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=60&h=40&fit=crop&crop=center" alt="Samsung TV" onerror="this.src='https://via.placeholder.com/60x40/DC2626/FFFFFF?text=TV'">
+                                <div class="order-item-info">
+                                    <h5 class="order-item-title">Samsung QLED 65"</h5>
+                                    <p class="order-item-spec">4K • HDR10+ • Smart TV</p>
+                                </div>
+                                <div class="order-item-price">$1,299</div>
+                            </div>
+                        </div>
+                        <div class="order-actions">
+                            <button class="btn-outline">Cancel Order</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Smart Suggestions Section -->
+            <section class="profile-section" id="suggestions">
+                <div class="section-header">
+                    <h3 class="section-title">Smart Suggestions</h3>
+                    <p class="section-subtitle">Based on your browsing and purchase history</p>
+                </div>
+
+                <div class="suggestions-grid">
+                    <div class="suggestion-card">
+                        <h4 class="suggestion-title">16GB RAM Laptops</h4>
+                        <p class="suggestion-desc">You've shown interest in high-performance laptops</p>
+                        <div class="suggestion-filters">
+                            <span class="filter-tag">RAM: 16GB+</span>
+                            <span class="filter-tag">Price: $1000-$3000</span>
+                        </div>
+                        <button class="btn-primary suggestion-btn">Browse Laptops</button>
+                    </div>
+
+                    <div class="suggestion-card">
+                        <h4 class="suggestion-title">Apple Products</h4>
+                        <p class="suggestion-desc">You frequently purchase Apple devices</p>
+                        <div class="suggestion-filters">
+                            <span class="filter-tag">Brand: Apple</span>
+                            <span class="filter-tag">Category: All</span>
+                        </div>
+                        <button class="btn-primary suggestion-btn">Browse Apple</button>
+                    </div>
+
+                    <div class="suggestion-card">
+                        <h4 class="suggestion-title">Gaming Laptops</h4>
+                        <p class="suggestion-desc">Based on your MacBook Pro interest</p>
+                        <div class="suggestion-filters">
+                            <span class="filter-tag">GPU: Dedicated</span>
+                            <span class="filter-tag">RAM: 16GB+</span>
+                        </div>
+                        <button class="btn-primary suggestion-btn">Browse Gaming</button>
+                    </div>
+
+                    <div class="suggestion-card">
+                        <h4 class="suggestion-title">Home Entertainment</h4>
+                        <p class="suggestion-desc">You're interested in TV upgrades</p>
+                        <div class="suggestion-filters">
+                            <span class="filter-tag">Category: TVs</span>
+                            <span class="filter-tag">Size: 55"+</span>
+                        </div>
+                        <button class="btn-primary suggestion-btn">Browse TVs</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settings Section -->
+            <section class="profile-section" id="settings">
+                <div class="section-header">
+                    <h3 class="section-title">Account Settings</h3>
+                </div>
+
+                <div class="settings-form">
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-input" value="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-input" value="john.doe@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Phone Number</label>
+                        <input type="tel" class="form-input" value="+1 (555) 123-4567">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Default Address</label>
+                        <textarea class="form-textarea" rows="3">123 Main Street, Apt 4B
+New York, NY 10001
+United States</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Notification Preferences</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" checked>
+                                <span class="checkmark"></span>
+                                Email notifications
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" checked>
+                                <span class="checkmark"></span>
+                                SMS notifications
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                                Push notifications
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button class="btn-primary">Save Changes</button>
+                        <button class="btn-outline">Cancel</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4 class="footer-title">TechMarket</h4>
+                    <p class="footer-desc">Your trusted tech marketplace</p>
+                </div>
+                <div class="footer-section">
+                    <h5 class="footer-subtitle">Team Members</h5>
+                    <ul class="footer-list">
+                        <li>John Doe</li>
+                        <li>Jane Smith</li>
+                        <li>Mike Johnson</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h5 class="footer-subtitle">Quick Links</h5>
+                    <ul class="footer-list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="catalog.html">Catalog</a></li>
+                        <li><a href="comparison.html">Compare</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TechMarket. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

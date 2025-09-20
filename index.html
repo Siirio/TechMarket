@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechMarket - Your Tech Marketplace</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <h1 class="logo">TechMarket</h1>
+                </div>
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-link active">Home</a>
+                    <a href="catalog.html" class="nav-link">Catalog</a>
+                    <a href="comparison.html" class="nav-link">Compare</a>
+                    <a href="cart.html" class="nav-link">Cart</a>
+                    <a href="profile.html" class="nav-link">Profile</a>
+                </div>
+                <div class="nav-actions">
+                    <button class="search-btn">
+                        <div class="search-icon"></div>
+                    </button>
+                    <button class="menu-btn">
+                        <div class="menu-icon"></div>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Welcome to TechMarket</h1>
+                    <h2 class="hero-tagline">Your Ultimate Tech Marketplace</h2>
+                    <p class="hero-description">Discover, compare, and purchase the latest technology products with our advanced filtering and comparison tools.</p>
+                    <div class="hero-actions">
+                        <button class="btn-primary btn-large" onclick="window.location.href='catalog.html'">Browse Products</button>
+                        <button class="btn-secondary btn-large" onclick="window.location.href='comparison.html'">Compare Products</button>
+                    </div>
+                    
+                    <!-- Category Icons Row -->
+                    <div class="category-icons-row">
+                        <div class="category-icon-item" onclick="navigateToCategory('laptops')">
+                            <div class="category-icon-wrapper">
+                                <div class="category-icon laptops-icon"></div>
+                            </div>
+                            <span class="category-label">Laptops</span>
+                        </div>
+                        <div class="category-icon-item" onclick="navigateToCategory('smartphones')">
+                            <div class="category-icon-wrapper">
+                                <div class="category-icon smartphones-icon"></div>
+                            </div>
+                            <span class="category-label">Smartphones</span>
+                        </div>
+                        <div class="category-icon-item" onclick="navigateToCategory('tvs')">
+                            <div class="category-icon-wrapper">
+                                <div class="category-icon tvs-icon"></div>
+                            </div>
+                            <span class="category-label">TVs</span>
+                        </div>
+                        <div class="category-icon-item" onclick="navigateToCategory('appliances')">
+                            <div class="category-icon-wrapper">
+                                <div class="category-icon appliances-icon"></div>
+                            </div>
+                            <span class="category-label">Appliances</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="floating-elements">
+                <div class="floating-card card-1"></div>
+                <div class="floating-card card-2"></div>
+                <div class="floating-card card-3"></div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">Why Choose TechMarket?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon search-icon"></div>
+                        <h3>Smart Search</h3>
+                        <p>Find exactly what you're looking for with our advanced filtering system</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon compare-icon"></div>
+                        <h3>Compare Products</h3>
+                        <p>Side-by-side comparison of specifications and features</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon price-icon"></div>
+                        <h3>Best Prices</h3>
+                        <p>Compare prices from multiple sellers to get the best deal</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon security-icon"></div>
+                        <h3>Secure Shopping</h3>
+                        <p>Safe and secure transactions with buyer protection</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Search Section -->
+        <section class="search-section">
+            <div class="container">
+                <h2 class="section-title">Find Your Perfect Product</h2>
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Search for products...">
+                    <button class="search-button" onclick="handleSearch()">Search</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">Copyright © 2024 Apple Inc. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
